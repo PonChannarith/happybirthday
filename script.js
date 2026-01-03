@@ -6,7 +6,7 @@ document.addEventListener('mousemove', (e) => {
 });
 
 // Typing effect for greeting
-const greetingText = "Hey You Know What! You're the most adorable human i ever met! 💖";
+const greetingText = "You are the sweetest person I have ever met 💖";
 const greetingElement = document.querySelector('.greeting');
 let charIndex = 0;
 
@@ -19,7 +19,13 @@ function typeGreeting() {
 }
 
 // Create floating elements
-const floatingElements = ['💖', '✨', '🌸', '💫', '💕'];
+const floatingElements = [
+  '💖', '✨', '🌸', '💫', '💕',
+  '🎂', '🎉', '🎁', '🌹', '💝', 
+  '🌟', '🎈', '🍰', '🕯️', '🥰',
+  '💌', '🌷', '💐', '💛', '💗'
+];
+
 function createFloating() {
     const element = document.createElement('div');
     element.className = 'floating';
@@ -40,7 +46,7 @@ function createFloating() {
     });
 }
 
-// Initialize animations
+// Initialize animations and audio on page load
 window.addEventListener('load', () => {
     // Title animation
     gsap.to('h1', {
@@ -63,33 +69,44 @@ window.addEventListener('load', () => {
 
     // Create floating elements periodically
     setInterval(createFloating, 1000);
-});
 
-// Hover effects
-       // Hover effects
-       document.querySelectorAll('.cta-button').forEach(button => {
-        button.addEventListener('mouseenter', () => {
-            gsap.to(button, {
-                scale: 1.1,
-                duration: 0.3
-            });
-        });
-
-        button.addEventListener('mouseleave', () => {
-            gsap.to(button, {
-                scale: 1,
-                duration: 0.3
-            });
-        });
-
-        // Smooth page transition on click
-        button.addEventListener('click', () => {
-            gsap.to('body', {
-                opacity: 0,
-                duration: 1,
-                onComplete: () => {
-                    window.location.href = 'cause.html'; // Replace with the actual URL of the next page
-                }
-            });
+    // Audio autoplay with fallback for browser restrictions
+    const audio = document.getElementById('birthday-audio');
+    audio.play().catch(() => {
+        audio.muted = true;
+        audio.play().then(() => {
+            // Unmute on first click
+            document.body.addEventListener('click', () => {
+                audio.muted = false;
+            }, { once: true });
         });
     });
+});
+
+// Hover effects for button
+document.querySelectorAll('.cta-button').forEach(button => {
+    button.addEventListener('mouseenter', () => {
+        gsap.to(button, {
+            scale: 1.1,
+            duration: 0.3
+        });
+    });
+
+    button.addEventListener('mouseleave', () => {
+        gsap.to(button, {
+            scale: 1,
+            duration: 0.3
+        });
+    });
+
+    // Smooth page transition on click
+    button.addEventListener('click', () => {
+        gsap.to('body', {
+            opacity: 0,
+            duration: 1,
+            onComplete: () => {
+                window.location.href = 'cause.html'; // Replace with the actual URL of the next page
+            }
+        });
+    });
+});

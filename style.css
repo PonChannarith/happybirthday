@@ -73,6 +73,55 @@ h1 {
     pointer-events: none;
     opacity: 0;
 }
+/* GIF wrapper styling */
+.image-wrapper {
+    display: inline-block;
+    margin: 2rem 0;
+    border-radius: 25px; /* Rounded corners */
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(255, 105, 180, 0.6), 0 0 80px rgba(255, 182, 193, 0.4);
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+/* GIF image */
+.birthday-gif {
+    width: 100%;
+    max-width: 400px;  /* Max size for desktop */
+    height: auto;
+    border-radius: 25px;
+    display: block;
+    margin: 0 auto;
+    animation: float 4s ease-in-out infinite alternate; /* Floating animation */
+}
+
+/* Floating animation for GIF */
+@keyframes float {
+    0%   { transform: translateY(0px); }
+    50%  { transform: translateY(-15px); }
+    100% { transform: translateY(0px); }
+}
+
+/* Hover pulse effect */
+.image-wrapper:hover {
+    transform: scale(1.05) rotate(-1deg);
+    box-shadow: 0 0 60px rgba(255, 105, 180, 0.8), 0 0 100px rgba(255, 182, 193, 0.6);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .birthday-gif { max-width: 350px; }
+}
+
+@media (max-width: 768px) {
+    h1 { font-size: 2rem; }
+    .greeting { font-size: 1.2rem; }
+    .cta-button { font-size: 1rem; }
+    .birthday-gif { max-width: 300px; }
+}
+
+@media (max-width: 480px) {
+    .birthday-gif { max-width: 250px; }
+}
 
 @keyframes gradientBG {
     0% { background-position: 0% 50%; }
@@ -85,3 +134,5 @@ h1 {
     .greeting { font-size: 1.2rem; }
     .cta-button { font-size: 1rem; }
 }
+
+

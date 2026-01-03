@@ -1,17 +1,17 @@
  // Reasons database
  const reasons = [
     { 
-        text: "You’re such a kind and wonderful person, and I feel lucky to share such a good bond with you. 💖", 
+        text: "You have the kindest heart and the most beautiful soul. Knowing you truly makes my days brighter. 💖", 
         emoji: "🌟",
         gif: "gif1.gif"
     },
     { 
-        text: "May your day be filled with love, laughter, and endless joy. 🌸 ", 
+        text: "May your days always be filled with gentle smiles, warm moments, and little joys that make your heart happy. 🌸 ", 
         emoji: "💗",
         gif: "gif2.gif"
     },
     { 
-        text: "Wishing you success, happiness, and everything your heart desires. ✨ ", 
+        text: "Happy Birthday, my love 💕 May your days be filled with endless happiness, warm smiles, and may all your dreams come true. Wishing you success, good luck, and all the best in your exciting new journey ahead!. ✨ ", 
         emoji: "💕",
         gif: "gif1.gif"
     },
@@ -76,7 +76,7 @@ function displayNewReason() {
                 duration: 0.5,
                 ease: "elastic.out",
                 onComplete: () => {
-                    shuffleButton.textContent = "Enter Our Storylane 💫";
+                    shuffleButton.textContent = "Enter Your Storylane, my Queen 💫";
                     shuffleButton.classList.add('story-mode');
                     shuffleButton.addEventListener('click', () => {
                         gsap.to('body', {
