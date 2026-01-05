@@ -100,6 +100,41 @@ h1 {
     50%  { transform: translateY(-15px); }
     100% { transform: translateY(0px); }
 }
+.birthday-date {
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-align: center;
+  margin-top: 12px;
+
+  /* Gradient text */
+  background: linear-gradient(120deg, #4d68ff, #ff8fcf, #ffd1ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
+  /* Blur glow effect */
+  filter: blur(0.3px);
+
+  /* Soft glowing shadow */
+  text-shadow:
+    0 0 6px rgba(255, 105, 180, 0.6),
+    0 0 12px rgba(255, 105, 180, 0.4),
+    0 0 20px rgba(255, 182, 193, 0.3);
+
+  /* Smooth animation */
+  animation: dreamyGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes dreamyGlow {
+  from {
+    filter: blur(0.2px);
+    transform: scale(1);
+  }
+  to {
+    filter: blur(0.6px);
+    transform: scale(1.04);
+  }
+}
 
 /* Hover pulse effect */
 .image-wrapper:hover {
